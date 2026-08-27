@@ -2,6 +2,8 @@
 #define ROBO_H
 
 #include <iostream>
+#include <cmath>
+
 #include "Ponto2D.hpp"
 
 struct Robo {
@@ -14,7 +16,7 @@ struct Robo {
 
     //Métodos
     //Construtor
-    Robo (int id, Ponto2D, bool);
+    Robo (int id, Ponto2D posicao, bool com_bola);
 
     // Método que atualiza a posição do robo de acordo com os parametros:
     // v: magnitude do vetor velocidade; th: orientação em radianos do vetor velocidade
