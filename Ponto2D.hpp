@@ -11,9 +11,9 @@ struct Ponto2D {
 
     // Métodos
     // Definindo o construtor, que recebe como valores padrão x = 0 e y = 0
-    Ponto2D (double x = 0, double y = 0) {}
+    Ponto2D (double x = 0, double y = 0);
 
-    double calcular_distancia(Ponto2D* ponto) {}
+    double calcular_distancia(Ponto2D* ponto);
 };
 
 #endif
