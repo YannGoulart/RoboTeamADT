@@ -2,6 +2,7 @@
 #define PONTO2D_H // Define essa classe apenas se não tiver sido definida antes
 
 #include <iostream>
+#include <cmath>
 
 struct Ponto2D {
     // Atributos
