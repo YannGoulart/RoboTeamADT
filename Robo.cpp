@@ -56,8 +56,20 @@ Robo* Robo::determinar_robo_mais_proximo(Robo** naves, int n){
 // recebe um array de ponteiros para robos (o time) e um parametro que informa a quantidade de elementos desse array.
 // Passar a bola significa apenas modificar os valores do atributo '_com_bola'
 // Se o robô que invocou o método não estiver com a bola, imprime: "estou sem bola" com quebra de linha
-void passar_bola(Robo** time, int n);
+// Deve passar a bola para o robo mais próximo
+void Robo::passar_bola(Robo** time, int n){
+    if (this->_com_bola){
+        this->_com_bola = 0;
+        Robo* mais_proximo = determinar_robo_mais_proximo(time, n);
+        mais_proximo->_com_bola = 1;
+
+    } else {
+        std::cout << "Estou sem a bola!" << std::endl;
+    }
+}
 
 // Imprime o estatus atual do robo
 //id x y com_bola energia, utilizando tab(\t) \t para separar
-void imprimir_status();
+void Robo::imprimir_status(){
+    std::cout << this->_id << "\t" << this->_posicao._x << "\t" << this->_posicao._y << "\t" << this->_com_bola << "\t" << this->_energia << std::endl;
+}
