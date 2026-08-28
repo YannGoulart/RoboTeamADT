@@ -32,19 +32,21 @@ double Robo::calcular_distancia(Robo* robo){
 
 // metodo que recebe um array de ponteiros (o time) e um parametro que informa quantos elementos no array, retorna o robo mais próximo do que invocou o método e retorna um ponteiro para ele
 Robo* Robo::determinar_robo_mais_proximo(Robo** naves, int n){
-    Robo* mais_proximo = this;
+    Robo* mais_proximo = nullptr;
     double distancia_mais_proxima = 0;
     double distancia_ate_robo = 0;
 
     for (int i = 0; i < n; i ++)
     {
+        // Se o robo atual for o proprio robo, pula o loop
+        if (naves[i] == this){
+            continue;
+        }
+
         distancia_ate_robo = this->calcular_distancia(naves[i]);
 
-        if (i == 0){
-            distancia_mais_proxima = distancia_ate_robo;
-            mais_proximo = naves[i];
-        }
-        if (distancia_ate_robo < distancia_mais_proxima){
+        // Se não tem robo mais próximo ou se a distancia entre os robos for menor que a distancia mais próxima, troca essa distância
+        if (mais_proximo == nullptr || distancia_ate_robo < distancia_mais_proxima){
             distancia_mais_proxima = distancia_ate_robo;
             mais_proximo = naves[i];
         }
